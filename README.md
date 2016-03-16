@@ -14,18 +14,19 @@ This script tracks the crack tip propagation at the interface between two bonded
 ## Usage and Examples
 ### Step 0: Prepare a video
 ### Step 1: Extract images from the video using FFmpeg
-![](/Users/chyayan/wedge_test_analysis/20150917_2/original-image/image-0001.png)
-### Step 2: Run `crop_gray.m` to crop the area of interst and convert to gray scale for all images. 
+![](images/image-0001.png)
+### Step 2: Run `crop_gray.m` to crop the area of interst and convert to gray scale for all images.
 
-The script will pause after showing the first image to let you find the size and position of the crop rectangle, specifiied as a four-element vector as shown below. 
+The script will pause after showing the first image to let you find the size and position of the crop rectangle, specifiied as a four-element vector as shown below.
 
 `cropfig = imcrop(original, [xin, ymin, width, height])`
 
 Press `return` to continue to crop the rest of images.
 
-![](/Users/chyayan/wedge_test_analysis/20150917_2/crop-image/image-0001-crop.png)  ![](/Users/chyayan/wedge_test_analysis/20150917_2/crop-image/image-0813-crop.png)  
+![](images/image-0001-crop.png)
+![](images/image-0813-crop.png)
 
-### Step 3: Run`fijimacro_img_contour.txt` macro in Fiji to detect ridge/lines.  
+### Step 3: Run`fijimacro_img_contour.txt` macro in Fiji to detect ridge/lines.
 
 * Open a single image file in fiji first, adjust the parameters in the Ridge Dection plugin until finding a best set of fitting parameter values.
 * Specify those values in `fijimacro_img_contour.txt`.
@@ -35,12 +36,13 @@ Press `return` to continue to crop the rest of images.
 
 * The macro will generate images with detected contours overlayed on top of the cropped images and the contour matrices in text file.
 
-![](/Users/chyayan/wedge_test_analysis/20150917_2/fijiresult/image-0001-crop.png)    ![](/Users/chyayan/wedge_test_analysis/20150917_2/fijiresult/image-0813-crop.png)
+![](images/image-0001-crop.png)
+![](images/image-0813-crop.png)
 
-### Step 4: Run `Ridge_analysis.m` to find the crack tip position from the detected contours. 
+### Step 4: Run `Ridge_analysis.m` to find the crack tip position from the detected contours.
 * The script superimposes the contours in different colors on the grayscale image and highlights the crack tip with a red circle.
-* The crack position in pixels is plotted as a function of time. 
-* Adjustable parameters can be specified in the beginning of the script: 
+* The crack position in pixels is plotted as a function of time.
+* Adjustable parameters can be specified in the beginning of the script:
 
 `#Input parameters`
 
@@ -52,14 +54,14 @@ Press `return` to continue to crop the rest of images.
 
 `fitting_para = {'line = 4;','high = 230;','low = 87;',...
     'sigma = 1.65;','lower = 0.68;','upper = 4.76'}`: Specify the values you use to run the Ridge Detection. The values of the fitting parameters will be shown in the crack propagation figure.
-    
 
-<img src="/Users/chyayan/wedge_test_analysis/20150917_2/result/image-0001-contours.png"> 
+
+<img src="/Users/chyayan/wedge_test_analysis/20150917_2/result/image-0001-contours.png">
 <img src="/Users/chyayan/wedge_test_analysis/20150917_2/result/image-0813-contours.png">
 <img src="/Users/chyayan/wedge_test_analysis/20150917_2/result/image-0001-overlay.png">
 <img src="/Users/chyayan/wedge_test_analysis/20150917_2/result/image-0813-overlay.png">
 
-![](/Users/chyayan/wedge_test_analysis/20150917_2/crackgrowth.pdf)
+![](images/crackgrowth.pdf)
 
 ### Step 5: Should I mention how to convert images to video?
 
@@ -71,11 +73,11 @@ Press `return` to continue to crop the rest of images.
 
 ##References and Credits
 * Ridge Detection:
-  * Method: 
-     
+  * Method:
+
      Steger, C., 1998. An unbiased detector of curvilinear structures. IEEE Transactions on Pattern Analysis and Machine Intelligence, 20(2), pp.113–125.
   * Implementation:
-    
+
       <https://zenodo.org/record/35440#.VuSxw5MrKRs>
-      
+
 * Thanks Steve Li for his help and discussion.
