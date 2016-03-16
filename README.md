@@ -61,7 +61,7 @@ Press `return` to continue to crop the rest of images.
 ![](images/image-0001-overlay.png)
 ![](images/image-0813-overlay.png)
 
-![](images/crackgrowth.pdf)
+![](images/crackgrowth.png)
 
 ### Step 5: Should I mention how to convert images to video?
 
