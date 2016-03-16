@@ -56,10 +56,10 @@ Press `return` to continue to crop the rest of images.
     'sigma = 1.65;','lower = 0.68;','upper = 4.76'}`: Specify the values you use to run the Ridge Detection. The values of the fitting parameters will be shown in the crack propagation figure.
 
 
-<img src="/Users/chyayan/wedge_test_analysis/20150917_2/result/image-0001-contours.png">
-<img src="/Users/chyayan/wedge_test_analysis/20150917_2/result/image-0813-contours.png">
-<img src="/Users/chyayan/wedge_test_analysis/20150917_2/result/image-0001-overlay.png">
-<img src="/Users/chyayan/wedge_test_analysis/20150917_2/result/image-0813-overlay.png">
+![](images/image-0001-contours.png)
+![](images/image-0813-contours.png)
+![](images/image-0001-overlay.png)
+![](images/image-0813-overlay.png)
 
 ![](images/crackgrowth.pdf)
 
