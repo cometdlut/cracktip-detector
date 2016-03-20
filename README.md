@@ -62,7 +62,7 @@ Overlay Contour            |  Highlight Crack Tip
 
 Once the crackp tip position in each image is detected, the crack tip position in pixels is plotted against the image number, as shown below.
 
-<img src="images/0916_2_result.png" width=79%>
+<img src="images/0916_2_result.png" width=65%>
 
 Parameters can be specified in the beginning of the script:
 
@@ -79,7 +79,7 @@ Parameters can be specified in the beginning of the script:
 
 
 ### Step 5: Convert images to video
-
+<https://youtu.be/g02SjmeXXVY>
 
 ##Files
 * crop_gray.m
