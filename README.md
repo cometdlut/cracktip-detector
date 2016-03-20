@@ -24,9 +24,16 @@ The script will pause after showing the first image to let you find the size and
 
 Press `return` to continue cropping the rest of images.
 
-Image #1                    |  Image #1931
-:------------------:|:-------------------------:
-<img src="images/image-1-crop.png" width=35%>| <img src="images/image-1931-crop.png" width=25%>
+<table>
+  <tr>
+    <th align="center">Overlay Contour</th>
+    <th align="center">Highlight Crack Tip</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="images/image-1-crop.png" height=300px></img></td>
+    <td align="center"><img src="images/image-1931-crop.png" height=300px></img></td>
+  </tr>
+</table>
 
 
 ### Step 3: Run`fijimacro_img_contour.txt` macro in Fiji to detect ridge/lines.
@@ -39,10 +46,17 @@ Image #1                    |  Image #1931
 
 * The macro will generate images with detected contours overlayed on top of the cropped images and the contour matrices in text file.
 
-Image #1           | Image #1931
-:----------------:|:-------------------------:
-<img src="images/image-1-fiji.png" width=35%>| <img src="images/image-1931-fiji.png" width=25%>
 
+<table>
+  <tr>
+    <th align="center">Overlay Contour</th>
+    <th align="center">Highlight Crack Tip</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="images/image-1-fiji.png" height=300px></img></td>
+    <td align="center"><img src="images/image-1931-fiji.png" height=300px></img></td>
+  </tr>
+</table>
 
 
 
@@ -52,35 +66,29 @@ The script superimposes the contours (obtained from Fiji) in different colors on
 
 The figures below show the overlaid contour plots and the highlighted plots from two recorded videos. As can be seen, the second set of images are more noisy than the images in the first set. The noise can result from several factors: lighting, sample preparations, and goodness of fit in Fiji. Nevertheless, the script is able to find the position of the crack tip correctly by applying multiple filters.
 
-<table style="border: none; width:50%; text-align: center;">
+
+<table>
   <tr>
-    <td style="width: 30%">Overlay Contour</td>
-    <td style="width: 30%">Highlight Crack Tip</td>
+    <th align="center">Overlay Contour</th>
+    <th align="center">Highlight Crack Tip</th>
   </tr>
   <tr>
-    <td><img src="images/0916_2-0002-contours.png" width=30%></td>
-    <td><img src="images/0916_2-0002-overlay.png" width=30%></td>
+    <td align="center"><img src="images/0916_2-0002-contours.png" height=300px></img></td>
+    <td align="center"><img src="images/0916_2-0002-overlay.png" height=300px></img></td>
   </tr>
 </table>
 
-<table style="border: none; width:50%; text-align: center;">
+<table>
   <tr>
-    <td style="width: 30%">Overlay Contour</td>
-    <td style="width: 30%">Highlight Crack Tip</td>
+    <th align="center">Overlay Contour</th>
+    <th align="center">Highlight Crack Tip</th>
   </tr>
   <tr>
-    <td><img src="images/0917_2-0813-contours.png" width=25%></td>
-    <td><img src="images/0917_2-0813-overlay.png" width=25%></td>
+    <td align="center"><img src="images/0917_2-0813-contours.png" height=300px></img></td>
+    <td align="center"><img src="images/0917_2-0813-overlay.png" height=300px></img></td>
   </tr>
 </table>
 
-Overlay Contour            |  Highlight Crack Tip
-:----------------:|:-------------------------:
-<img src="images/0916_2-0002-contours.png" width=20%>| <img src="images/0916_2-0002-overlay.png" width=20%>
-
-Overlay Contour            |  Highlight Crack Tip
-:----------------:|:-------------------------:
-<img src="images/0917_2-0813-contours.png" width=20%>| <img src="images/0917_2-0813-overlay.png" width=19%>
 
 Once the crackp tip position in each image is detected, the crack tip position in pixels is plotted against the image number, as shown below.
 
