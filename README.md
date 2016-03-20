@@ -13,18 +13,20 @@ This script tracks the crack tip propagation at the interface between two bonded
 
 ## Usage and Examples
 ### Step 0: Prepare a video
+<https://www.youtube.com/watch?v=0GRP7BRfZc8>
 ### Step 1: Extract images from the video using FFmpeg
-![](images/image-0001.png)
+<img src="images/image-0001.png"  width=70%>
 ### Step 2: Run `crop_gray.m` to crop the area of interst and convert to gray scale for all images.
 
 The script will pause after showing the first image to let you find the size and position of the crop rectangle, specifiied as a four-element vector as shown below.
 
 `cropfig = imcrop(original, [xin, ymin, width, height])`
 
-Press `return` to continue to crop the rest of images.
+Press `return` to continue cropping the rest of images.
 
-![](images/image-0001-crop.png)
-![](images/image-0813-crop.png)
+<img src="images/image-1-crop.png" width=7%>
+<img src="images/image-1931-crop.png" width=7%>
+
 
 ### Step 3: Run`fijimacro_img_contour.txt` macro in Fiji to detect ridge/lines.
 
@@ -36,8 +38,9 @@ Press `return` to continue to crop the rest of images.
 
 * The macro will generate images with detected contours overlayed on top of the cropped images and the contour matrices in text file.
 
-![](images/image-0001-crop.png)
-![](images/image-0813-crop.png)
+<img src="images/image-1-fiji.png" width=7%>
+<img src="images/image-1931-fiji.png" width=7%>
+
 
 ### Step 4: Run `Ridge_analysis.m` to find the crack tip position from the detected contours.
 * The script superimposes the contours in different colors on the grayscale image and highlights the crack tip with a red circle.
@@ -56,14 +59,17 @@ Press `return` to continue to crop the rest of images.
     'sigma = 1.65;','lower = 0.68;','upper = 4.76'}`: Specify the values you use to run the Ridge Detection. The values of the fitting parameters will be shown in the crack propagation figure.
 
 
-![](images/image-0001-contours.png)
-![](images/image-0813-contours.png)
-![](images/image-0001-overlay.png)
-![](images/image-0813-overlay.png)
+<img src="images/0916_2-0002-contours.png" width=7%>
+<img src="images/0916_2-0002-overlay.png" width=7%>
+<img src="images/0916_2-1931-contours.png" width=7%>
+<img src="images/0916_2-1931-overlay.png" width=7%>
 
-![](images/crackgrowth.png)
+<img src="images/0917_2-0002-contours.png" width=6.5%>
+<img src="images/0917_2-0002-overlay.png" width=6.5%>
+<img src="images/0917_2-0813-contours.png" width=6.5%>
+<img src="images/0917_2-0813-overlay.png" width=6.5%>
 
-### Step 5: Should I mention how to convert images to video?
+### Step 5: Convert images to video
 
 
 ##Files
