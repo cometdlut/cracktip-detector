@@ -58,11 +58,11 @@ Overlay Contour            |  Highlight Crack Tip
 
 Overlay Contour            |  Highlight Crack Tip
 :----------------:|:-------------------------:
-<img src="images/0917_2-0813-contours.png" width=20%>| <img src="images/0917_2-0813-overlay.png" width=20%>
+<img src="images/0917_2-0813-contours.png" width=20%>| <img src="images/0917_2-0813-overlay.png" width=19%>
 
 Once the crackp tip position in each image is detected, the crack tip position in pixels is plotted against the image number, as shown below.
 
-<img src="images/0916_2_result.png" width=65%>
+<img src="images/0916_2_result.png" width=50%>
 
 Parameters can be specified in the beginning of the script:
 
