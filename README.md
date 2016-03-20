@@ -52,6 +52,28 @@ The script superimposes the contours (obtained from Fiji) in different colors on
 
 The figures below show the overlaid contour plots and the highlighted plots from two recorded videos. As can be seen, the second set of images are more noisy than the images in the first set. The noise can result from several factors: lighting, sample preparations, and goodness of fit in Fiji. Nevertheless, the script is able to find the position of the crack tip correctly by applying multiple filters.
 
+<table style="border: none; width:50%; text-align: center;">
+  <tr>
+    <td style="width: 30%">Overlay Contour</td>
+    <td style="width: 30%">Highlight Crack Tip</td>
+  </tr>
+  <tr>
+    <td><img src="images/0916_2-0002-contours.png" width=30%></td>
+    <td><img src="images/0916_2-0002-overlay.png" width=30%></td>
+  </tr>
+</table>
+
+<table style="border: none; width:50%; text-align: center;">
+  <tr>
+    <td style="width: 30%">Overlay Contour</td>
+    <td style="width: 30%">Highlight Crack Tip</td>
+  </tr>
+  <tr>
+    <td><img src="images/0917_2-0813-contours.png" width=25%></td>
+    <td><img src="images/0917_2-0813-overlay.png" width=25%></td>
+  </tr>
+</table>
+
 Overlay Contour            |  Highlight Crack Tip
 :----------------:|:-------------------------:
 <img src="images/0916_2-0002-contours.png" width=20%>| <img src="images/0916_2-0002-overlay.png" width=20%>
@@ -78,7 +100,9 @@ Parameters can be specified in the beginning of the script:
     'sigma = 1.65;','lower = 0.68;','upper = 4.76'}`: Specify the values you use to run the Ridge Detection. The values of the fitting parameters will be shown in the crack propagation figure.
 
 
-### Step 5: Convert images to video
+### Step 5: Convert images to video using FFmpeg
+
+`ffmpeg -r 3 -i image-%04d-overlay.png -codec:v libx264crackgrowth.mp4`
 <https://youtu.be/g02SjmeXXVY>
 
 ##Files
