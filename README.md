@@ -1,4 +1,4 @@
-# Ridge Analysis -- Detection of Crack Propagation
+# Detection of Crack Propagation
 
 This script tracks the crack tip propagation at the interface between two bonded layers in the wedge test.
 
@@ -13,6 +13,8 @@ This script tracks the crack tip propagation at the interface between two bonded
 
 ## Usage and Examples
 ### Step 0: Prepare a video
+
+Click on this image will play the youtube video
 
 [![Recorded video for Wedge Test Analysis](https://img.youtube.com/vi/0GRP7BRfZc8/0.jpg)](https://www.youtube.com/watch?v=0GRP7BRfZc8)
 
@@ -188,7 +190,7 @@ upperBound = 75;
  * `-codec:v`: Set the video codec. We are using the encoder X264
  * `crackgrowth.mp4`: the name of the output video
 
-* Click below for an example video:
+* Click below for the output video for crack tip detection:
   
   [![Output video for crack tip detection](https://img.youtube.com/vi/g02SjmeXXVY/0.jpg)](https://youtu.be/g02SjmeXXVY)
 
