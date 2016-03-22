@@ -19,7 +19,7 @@ This script tracks the crack tip propagation at the interface between two bonded
 Run this command on shell
 
 ```sh
-ffmpeg -i DSC_0068.MOV -r 3 -ss 00:00:00 -t 00:10:40 image-%04d.png`
+ffmpeg -i DSC_0068.MOV -r 3 -ss 00:00:00 -t 00:10:40 image-%04d.png
 
 ```
 
@@ -63,7 +63,7 @@ The script will pause after showing the first image to let you find the size and
 
 `cropfig = imcrop(original, [xin, ymin, width, height])`
 
-Move the curser in the command window and press `return` to continue cropping the rest of images.
+Once your are done specifying the crop rectangle and saving the file, move the curser in the command window and press `return` to continue cropping the rest of images.
 
 <table>
   <thead>
@@ -115,11 +115,11 @@ Move the curser in the command window and press `return` to continue cropping th
 
 
 ### Step 4: Run `Ridge_analysis.m` in Matlab to find the crack tip position from the detected contours.
-The script superimposes the contours obtained from the ridge detection in different colors on the grayscale image.  From the pool of contour lines, the script is able to find the crack tip position and highlight it with a red circle.
+* The script superimposes the contours obtained from the ridge detection in different colors on the grayscale image.  From the pool of contour lines, the script is able to find the crack tip position and highlight it with a red circle.
 
-The figures below show the overlaid contour plots and the highlighted plots from two recorded videos. As can be seen, the second set of images are more noisy than the images in the first set. The noise can result from several factors: lighting, sample preparations, and goodness of fit in Fiji. Nevertheless, the script is able to find the position of the crack tip correctly by applying multiple filters.
+* The figures below show the overlaid contour plots and the highlighted plots from two recorded videos. As can be seen, the second set of images are more noisy than the images in the first set. The noise can result from several factors: lighting, sample preparations, and goodness of fit in Fiji. Nevertheless, the script is able to find the position of the crack tip correctly by applying multiple filters.
 
-<table>
+ <table>
   <thead>
   <tr>
     <th align="center">Overlay Contour</th>
@@ -134,7 +134,7 @@ The figures below show the overlaid contour plots and the highlighted plots from
   </tbody>
 </table>
 
-<table>
+ <table>
   <thead>
   <tr>
     <th align="center">Overlay Contour</th>
@@ -149,54 +149,54 @@ The figures below show the overlaid contour plots and the highlighted plots from
   </tbody>
 </table>
 
-Once the crackp tip position in each image is detected, the crack tip position in pixels is plotted against the image number, as shown below.
+* Once the crackp tip position in each image is detected, the crack tip position in pixels is plotted against the image number, as shown below.
 
-<img src="images/0916_2_result.png" width=50%>
+ <img src="images/0916_2_result.png" width=50%>
 
-Parameters can be specified in the beginning of the script:
+* Parameters can be specified in the beginning of the script:
 
-```Matlab
-% Input parameters
+ ```Matlab
+ % Input parameters
 
-% number of input images
+ % number of input images
 final = 1931;
 
-% The lower(initXmin) and uppor(initXmax) bound in pixels along the x-axis 
-% where the crack tip falls within this range in the first image
+ % The lower(initXmin) and uppor(initXmax) bound in pixels along the  x-axis 
+ % where the crack tip falls within this range in the first image
 initXmin = 20;
 initXmax = 40;
 
-% The lower(lowerBound) and uppor(upperBound) bound in pixels along the x-axis
-% where the crack tip falls within this range for all images. This range 
-% should be set larger than that for the first image. 
+ % The lower(lowerBound) and uppor(upperBound) bound in pixels along the x-axis
+ % where the crack tip falls within this range for all images. This range 
+ % should be set larger than that for the first image. 
 lowerBound = 1;
 upperBound = 75;
 
-```
+ ```
 
 
 ### Step 5: Convert images to video using FFmpeg
 
-Run this command on shell
+* Run this command on shell
 
-```sh
-ffmpeg -r 3 -i image-%04d-overlay.png -codec:v libx264 crackgrowth.mp4`
+  ```sh
+  ffmpeg -r 3 -i image-%04d-overlay.png -codec:v libx264 crackgrowth.mp4
+   
+  ```
 
-```
+ We are converting the images to a video by using the images with the crack tip highlighted with a red circle. We are using the following parameters:
 
-We are converting the images to a video by using the images with the crack tip highlighted with a red circle. We are using the following parameters:
+ `-r`: create video using 3 images every second
 
-`-r`: create video using 3 images every second
+ `-i`: the input file name, e.g. image-0001-overlay.png
 
-`-i`: the input file name, e.g. image-0001-overlay.png
+ `-codec:v`: Set the video codec. We are using the encoder X264
 
-`-codec:v`: Set the video codec. We are using the encoder X264
+ `crackgrowth.mp4`: the name of the output video
 
-`crackgrowth.mp4`: the name of the output video
+* Click below for an example video:
 
-Click below for an example video:
-
-<https://youtu.be/g02SjmeXXVY>
+  <https://youtu.be/g02SjmeXXVY>
 
 ##Files
 * crop_gray.m
