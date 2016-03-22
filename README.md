@@ -14,7 +14,7 @@ This script tracks the crack tip propagation at the interface between two bonded
 ## Usage and Examples
 ### Step 0: Prepare a video
 
-Click on this image will play the youtube video
+We first recorded a video of the wedge test experiment (click on the image below will play the youtube video)
 
 [![Recorded video for Wedge Test Analysis](https://img.youtube.com/vi/0GRP7BRfZc8/0.jpg)](https://www.youtube.com/watch?v=0GRP7BRfZc8)
 
@@ -37,7 +37,9 @@ We are using the parameters:
 
 
 <img src="images/0916_2-0001.png"  width=70%>
-### Step 2: Run `crop_gray.m` in Matlab to crop the area of interst and convert to gray scale for all images.
+
+### Step 2: Preprocess images in Matlab
+Run `crop_gray.m` to crop the area of interst and convert to gray scale for all images.
 
 ```Matlab
 filename = sprintf('./original-image/image-0002.png');
@@ -61,7 +63,10 @@ end
 
 The script will pause after showing the first image to let you find the size and position of the crop rectangle, specifiied as a four-element vector as shown below.
 
-`cropfig = imcrop(original, [xin, ymin, width, height])`
+```Matlab
+cropfig = imcrop(original, [xin, ymin, width, height])
+
+```
 
 Once your are done specifying the crop rectangle and saving the file, move the curser in the command window and press `return` to continue cropping the rest of images.
 
@@ -82,7 +87,8 @@ Once your are done specifying the crop rectangle and saving the file, move the c
 
 
 
-### Step 3: Run`fijimacro_img_contour.txt` macro in Fiji to detect ridge/lines.
+### Step 3: Prepocess images in Fiji
+Run`fijimacro_img_contour.txt` macro to detect ridge/lines.
 
 * Open a single image file in fiji, adjust the parameters in the Ridge Dection plugin until finding a best set of fitting parameter values.
 
@@ -113,7 +119,10 @@ Once your are done specifying the crop rectangle and saving the file, move the c
 </table>
 
 
-### Step 4: Run `Ridge_analysis.m` in Matlab to find the crack tip position from the detected contours.
+### Step 4: Find the crack tip position from the detected contours.
+
+Run `Ridge_analysis.m` in Matlab 
+
 * The script superimposes the contours obtained from the ridge detection in different colors on the grayscale image.  From the pool of contour lines, the script is able to find the crack tip position and highlight it with a red circle.
 
 * The figures below show the overlaid contour plots and the highlighted plots from two recorded videos. As can be seen, the second set of images are more noisy than the images in the first set. The noise can result from several factors: lighting, sample preparations, and goodness of fit in Fiji. Nevertheless, the script is able to find the position of the crack tip correctly by applying multiple filters.
@@ -190,7 +199,7 @@ upperBound = 75;
  * `-codec:v`: Set the video codec. We are using the encoder X264
  * `crackgrowth.mp4`: the name of the output video
 
-* Click below for the output video for crack tip detection:
+* Click below for the output video of the crack tip detection:
   
   [![Output video for crack tip detection](https://img.youtube.com/vi/g02SjmeXXVY/0.jpg)](https://youtu.be/g02SjmeXXVY)
 
