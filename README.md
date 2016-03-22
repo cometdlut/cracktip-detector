@@ -96,9 +96,8 @@ Run`fijimacro_img_contour.txt` macro to detect ridge/lines.
 
   For example, we are using the parameters:
   
-  ```
-  run("Ridge Detection", "line=3.5 high=230 low=87 darkline...
-  extend display add sigma=1.51 lower=0.85 upper=5.78")
+  ```javascript
+  run("Ridge Detection", "line=3.5 high=230 low=87 darkline extend display add sigma=1.51 lower=0.85 upper=5.78")
   ```
 
 * Run `fijimacro_img_contour.txt` in Fiji by clicking `Plugins`-> `Macros` -> `Run` -> `fijimacro_img_contour.txt`. The macro will run the ridge detection for each image and output two types of files: images with detected contours overlayed on top of the cropped images and the contour matrices in the text file.
@@ -119,7 +118,7 @@ Run`fijimacro_img_contour.txt` macro to detect ridge/lines.
 </table>
 
 
-### Step 4: Find the crack tip position from the detected contours.
+### Step 4: Find the crack tip position from the detected contours
 
 Run `Ridge_analysis.m` in Matlab 
 
@@ -196,7 +195,7 @@ upperBound = 75;
 
  * `-r`: create video using 3 images every second
  * `-i`: the input file name, e.g. image-0001-overlay.png
- * `-codec:v`: Set the video codec. We are using the encoder X264
+ * `-codec:v`: Set the video codec. We use x264 video codec
  * `crackgrowth.mp4`: the name of the output video
 
 * Click below for the output video of the crack tip detection:
