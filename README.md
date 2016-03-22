@@ -5,13 +5,14 @@ This script tracks the crack tip propagation at the interface between two bonded
 ## Requirement
 * [ffmpeg](https://www.ffmpeg.org/)
 * [fiji](http://fiji.sc/) (imageJ v.2.0), with [Ridge Dection Plugin](http://imagej.net/Ridge_Detection)
-* Matlab (tested on R2014a)
+* [Matlab](http://www.mathworks.com/products/matlab/) (tested on R2014a)
 
 ## Features
 * Implements the ridge detection algorithm to unbiasedly dectect contours
 * Find the crack tip position from the dective contours and plot against time
 
 ## Usage and Examples
+
 ### Step 0: Prepare a video
 
 We first recorded a video of the wedge test experiment (click on the image below will play the youtube video)
@@ -24,7 +25,6 @@ Run the following command in the shell
 
 ```sh
 ffmpeg -i DSC_0068.MOV -r 3 -ss 00:00:00 -t 00:10:40 image-%04d.png
-
 ```
 
 We are using the parameters:
@@ -58,14 +58,12 @@ for i = 2 : nimage;
     %imwrite(gray, sprintf('./crop-image2/%s-%04d-crop.png', 'image', i));
     saveas(gcf, sprintf('./crop-image2/%s-%04d-crop.eps', 'image', i),'epsc');
 end
-
 ```
 
 The script will pause after showing the first image to let you find the size and position of the crop rectangle, specifiied as a four-element vector as shown below.
 
 ```Matlab
 cropfig = imcrop(original, [xin, ymin, width, height])
-
 ```
 
 Once your are done specifying the crop rectangle and saving the file, move the curser in the command window and press `return` to continue cropping the rest of images.
@@ -88,7 +86,7 @@ Once your are done specifying the crop rectangle and saving the file, move the c
 
 
 ### Step 3: Prepocess images in Fiji
-Run`fijimacro_img_contour.txt` macro to detect ridge/lines.
+Run `fijimacro_img_contour.txt` macro to detect ridge/lines.
 
 * Open a single image file in fiji, adjust the parameters in the Ridge Dection plugin until finding a best set of fitting parameter values.
 
@@ -166,19 +164,18 @@ Run `Ridge_analysis.m` in Matlab
  % Input parameters
 
  % number of input images
-final = 1931;
+ final = 1931;
 
  % The lower(initXmin) and uppor(initXmax) bound in pixels along the  x-axis 
  % where the crack tip falls within this range in the first image
-initXmin = 20;
-initXmax = 40;
+ initXmin = 20;
+ initXmax = 40;
 
  % The lower(lowerBound) and uppor(upperBound) bound in pixels along the x-axis
  % where the crack tip falls within this range for all images. This range 
  % should be set larger than that for the first image. 
-lowerBound = 1;
-upperBound = 75;
-
+ lowerBound = 1;
+ upperBound = 75;
  ```
 
 
@@ -188,7 +185,6 @@ upperBound = 75;
 
   ```sh
   ffmpeg -r 3 -i image-%04d-overlay.png -codec:v libx264 crackgrowth.mp4
-   
   ```
 
  We are converting the images to a video by using the images with the crack tip highlighted with a red circle. We are using the following parameters:
@@ -202,16 +198,17 @@ upperBound = 75;
   
   [![Output video for crack tip detection](https://img.youtube.com/vi/g02SjmeXXVY/0.jpg)](https://youtu.be/g02SjmeXXVY)
 
-##Files
-* crop_gray.m
-* fijimacro\_img_contour.txt
-* Ridge_analysis.m
+## Files
 
-##References and Credits
+* `crop_gray.m`
+* `fijimacro_img_contour.txt`
+* `Ridge_analysis.m`
+
+## References and Credits
+
 * Ridge Detection:
   * Method:
      Steger, C., 1998. An unbiased detector of curvilinear structures. IEEE Transactions on Pattern Analysis and Machine Intelligence, 20(2), pp.113–125.
   * Implementation:
       <https://zenodo.org/record/35440#.VuSxw5MrKRs>
-
 * Thanks Steve Li for his help and discussion.
