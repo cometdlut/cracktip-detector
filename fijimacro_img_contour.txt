@@ -1,0 +1,17 @@
+dir = "/Users/chyayan/wedge_test_analysis/20150917_3/crop-image/";
+outputDir = "/Users/chyayan/wedge_test_analysis/20150917_3/fijiresult2/";
+
+setBatchMode(true);
+list = getFileList(dir);
+for (i = 0; i < list.length; i++) {
+    fileName = list[i];
+    open(dir + fileName);
+    run("Sharpen");
+    run("Ridge Detection", "line=4 high=230 low=87 darkline extend display add sigma=1 lower=0.68 upper=4.76");
+    prefix = substring(fileName, 0, indexOf(fileName, "."));
+    saveAs("PNG",  outputDir + prefix + ".png");
+    selectWindow("Contours");
+    saveAs("Text",  outputDir + prefix + ".csv");
+    run("Close");
+}
+setBatchMode(false);
