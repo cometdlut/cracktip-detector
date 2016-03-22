@@ -3,8 +3,8 @@
 This script tracks the crack tip propagation at the interface between two bonded layers in the wedge test.
 
 ## Requirement
-* ffmpeg
-* fiji (imageJ v.2.0), with Ridge Dection Plugin
+* [ffmpeg](https://www.ffmpeg.org/)
+* [fiji](http://fiji.sc/) (imageJ v.2.0), with [Ridge Dection Plugin](https://zenodo.org/record/35440#.VuSxw5MrKRs)
 * Matlab (tested on R2014a)
 
 ## Features
@@ -13,7 +13,7 @@ This script tracks the crack tip propagation at the interface between two bonded
 
 ## Usage and Examples
 ### Step 0: Prepare a video
-<https://www.youtube.com/watch?v=0GRP7BRfZc8>
+[Recorded Video for Wedge Test Analysis](https://www.youtube.com/watch?v=0GRP7BRfZc8)
 ### Step 1: Extract images from the video using FFmpeg
 
 Run this command on shell
@@ -25,15 +25,15 @@ ffmpeg -i DSC_0068.MOV -r 3 -ss 00:00:00 -t 00:10:40 image-%04d.png
 
 We are using the parameters:
 
-`-i`: the input file name DSC_0068.MOV
+* `-i`: the input file name DSC_0068.MOV
 
-`-r`: extract 3 images every second
+* `-r`: extract 3 images every second
 
-`-ss`: start extracting image from 00:00:00
+* `-ss`: start extracting image from 00:00:00
 
-`-t`: end extracting image at 00:10:40
+* `-t`: end extracting image at 00:10:40
 
-`image-%04d.png`: the format of output images, e.g image-0001.png
+* `image-%04d.png`: the format of output images, e.g image-0001.png
 
 
 <img src="images/0916_2-0001.png"  width=70%>
@@ -91,8 +91,8 @@ Once your are done specifying the crop rectangle and saving the file, move the c
   For example, we are using the parameters:
   
   ```
-  run("Ridge Detection", "line=3.5 high=230 low=87 darkline...`
-  `extend display add sigma=1.51 lower=0.85 upper=5.78")`
+  run("Ridge Detection", "line=3.5 high=230 low=87 darkline...
+  extend display add sigma=1.51 lower=0.85 upper=5.78")
   
   ```
 
@@ -186,17 +186,17 @@ upperBound = 75;
 
  We are converting the images to a video by using the images with the crack tip highlighted with a red circle. We are using the following parameters:
 
- `-r`: create video using 3 images every second
+ * `-r`: create video using 3 images every second
 
- `-i`: the input file name, e.g. image-0001-overlay.png
+ * `-i`: the input file name, e.g. image-0001-overlay.png
 
- `-codec:v`: Set the video codec. We are using the encoder X264
+ * `-codec:v`: Set the video codec. We are using the encoder X264
 
- `crackgrowth.mp4`: the name of the output video
+ * `crackgrowth.mp4`: the name of the output video
 
 * Click below for an example video:
 
-  <https://youtu.be/g02SjmeXXVY>
+  [Crack tip Detection Video](https://youtu.be/g02SjmeXXVY)
 
 ##Files
 * crop_gray.m
