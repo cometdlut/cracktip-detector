@@ -13,7 +13,9 @@ This script tracks the crack tip propagation at the interface between two bonded
 
 ## Usage and Examples
 ### Step 0: Prepare a video
-[Recorded Video for Wedge Test Analysis](https://www.youtube.com/watch?v=0GRP7BRfZc8)
+
+[![Recorded video for Wedge Test Analysis](https://img.youtube.com/vi/0GRP7BRfZc8/0.jpg)](https://www.youtube.com/watch?v=0GRP7BRfZc8)
+
 ### Step 1: Extract images from the video using FFmpeg
 
 Run the following command in the shell
@@ -187,8 +189,8 @@ upperBound = 75;
  * `crackgrowth.mp4`: the name of the output video
 
 * Click below for an example video:
-
-  [Crack tip Detection Video](https://youtu.be/g02SjmeXXVY)
+  
+  [![Output video for crack tip detection](https://img.youtube.com/vi/g02SjmeXXVY/0.jpg)](https://youtu.be/g02SjmeXXVY)
 
 ##Files
 * crop_gray.m
