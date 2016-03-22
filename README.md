@@ -16,7 +16,7 @@ This script tracks the crack tip propagation at the interface between two bonded
 [Recorded Video for Wedge Test Analysis](https://www.youtube.com/watch?v=0GRP7BRfZc8)
 ### Step 1: Extract images from the video using FFmpeg
 
-Run this command on shell
+Run the following command in the shell
 
 ```sh
 ffmpeg -i DSC_0068.MOV -r 3 -ss 00:00:00 -t 00:10:40 image-%04d.png
@@ -26,13 +26,9 @@ ffmpeg -i DSC_0068.MOV -r 3 -ss 00:00:00 -t 00:10:40 image-%04d.png
 We are using the parameters:
 
 * `-i`: the input file name DSC_0068.MOV
-
 * `-r`: extract 3 images every second
-
 * `-ss`: start extracting image from 00:00:00
-
 * `-t`: end extracting image at 00:10:40
-
 * `image-%04d.png`: the format of output images, e.g image-0001.png
 
 
@@ -40,21 +36,21 @@ We are using the parameters:
 ### Step 2: Run `crop_gray.m` in Matlab to crop the area of interst and convert to gray scale for all images.
 
 ```Matlab
-filename = sprintf('./original-image/image-0001.png');
+filename = sprintf('./original-image/image-0002.png');
 original = imread(filename);
 figure
 img1 = imshow(original);
 pause
 
 nimage = length(dir('./original-image/*.png'));
-for i = 1 : nimage;
-filename = sprintf('./original-image/image-%04d.png', i);
-        original = imread(filename);
-        cropfig = imcrop(original, [905, 50, 115, 930]);
-        gray = rgb2gray(cropfig);
-        imshow(gray);
-        %imwrite(gray, sprintf('./crop-image2/%s-%04d-crop.png', 'image', i));
-        saveas(gcf, sprintf('./crop-image2/%s-%04d-crop.eps', 'image', i),'epsc');
+for i = 2 : nimage;
+    filename = sprintf('./original-image/image-%04d.png', i);
+    original = imread(filename);
+    cropfig = imcrop(original, [905, 50, 115, 930]);
+    gray = rgb2gray(cropfig);
+    imshow(gray);
+    %imwrite(gray, sprintf('./crop-image2/%s-%04d-crop.png', 'image', i));
+    saveas(gcf, sprintf('./crop-image2/%s-%04d-crop.eps', 'image', i),'epsc');
 end
 
 ```
@@ -93,7 +89,6 @@ Once your are done specifying the crop rectangle and saving the file, move the c
   ```
   run("Ridge Detection", "line=3.5 high=230 low=87 darkline...
   extend display add sigma=1.51 lower=0.85 upper=5.78")
-  
   ```
 
 * Run `fijimacro_img_contour.txt` in Fiji by clicking `Plugins`-> `Macros` -> `Run` -> `fijimacro_img_contour.txt`. The macro will run the ridge detection for each image and output two types of files: images with detected contours overlayed on top of the cropped images and the contour matrices in the text file.
@@ -177,7 +172,7 @@ upperBound = 75;
 
 ### Step 5: Convert images to video using FFmpeg
 
-* Run this command on shell
+* Run the following command in the shell
 
   ```sh
   ffmpeg -r 3 -i image-%04d-overlay.png -codec:v libx264 crackgrowth.mp4
@@ -187,11 +182,8 @@ upperBound = 75;
  We are converting the images to a video by using the images with the crack tip highlighted with a red circle. We are using the following parameters:
 
  * `-r`: create video using 3 images every second
-
  * `-i`: the input file name, e.g. image-0001-overlay.png
-
  * `-codec:v`: Set the video codec. We are using the encoder X264
-
  * `crackgrowth.mp4`: the name of the output video
 
 * Click below for an example video:
@@ -206,10 +198,8 @@ upperBound = 75;
 ##References and Credits
 * Ridge Detection:
   * Method:
-
      Steger, C., 1998. An unbiased detector of curvilinear structures. IEEE Transactions on Pattern Analysis and Machine Intelligence, 20(2), pp.113–125.
   * Implementation:
-
       <https://zenodo.org/record/35440#.VuSxw5MrKRs>
 
 * Thanks Steve Li for his help and discussion.
