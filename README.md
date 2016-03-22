@@ -4,7 +4,7 @@ This script tracks the crack tip propagation at the interface between two bonded
 
 ## Requirement
 * [ffmpeg](https://www.ffmpeg.org/)
-* [fiji](http://fiji.sc/) (imageJ v.2.0), with [Ridge Dection Plugin](https://zenodo.org/record/35440#.VuSxw5MrKRs)
+* [fiji](http://fiji.sc/) (imageJ v.2.0), with [Ridge Dection Plugin](http://imagej.net/Ridge_Detection)
 * Matlab (tested on R2014a)
 
 ## Features
